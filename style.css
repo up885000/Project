@@ -3,10 +3,17 @@ body {
     font-size:5ch;
 }
 
-#desktop-content {display: block;}
-#mobile-content {display: none;}
+div {
+    width: 768px;
+    border: 5px solid black;
+}
 
-@media only screen and (max-width: 768px) {
+@media screen and (min-width:769px){
+    #desktop-content {display: block;}
+    #mobile-content {display: none;}
+}
+
+@media screen and (max-width: 768px) {
     #mobile-content {display: block;}    
     #desktop-content {display: none;}
 }
