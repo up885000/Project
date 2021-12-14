@@ -1,12 +1,19 @@
-body {
+html, body{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size:5ch;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%
 }
 
-div {
-    width: 768px;
-    border: 5px solid black;
+
+#camera, #camera--view, #camera--sensor, #camera--output{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    object-fit: cover
 }
+
 
 @media screen and (min-width:769px){
     #desktop-content {display: block;}
