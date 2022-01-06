@@ -12,8 +12,16 @@
             Please use mobile device
         </div>
         <div id="mobile-content">
-            <video id="camera--view" autoplay></video>
-            <canvas id="camera--sensor"></canvas>
+            <div id="camera-window">
+                <img src="chat.png" id="chat-button" onclick="chatOpen()">
+                <img src="mic off.png" id="mic-button" onclick="mic()" alt="off">
+                <video id="camera--view" autoplay></video>
+                <canvas id="camera--sensor"></canvas>
+            </div>
+            <div id="chat-window">
+                <img src="x.png" id="close-button" onclick="chatClose()">
+                Chat window
+            </div>
         </div>
     </body>
     <script src="app.js"></script> 

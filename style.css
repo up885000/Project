@@ -14,6 +14,44 @@ html, body{
     object-fit: cover
 }
 
+#mic-button{
+    width: 20vw;
+    height: 20vw;
+    background-color: aliceblue;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+#chat-button{
+    width: 20vw;
+    height: 20vw;
+    background-color: aliceblue;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+#close-button{
+    width: 20vw;
+    height: 20vw;
+    background-color: aliceblue;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+
+#chat-window {
+    display: none;
+}
+
+#camera-window{
+    display: block;
+}
+
 
 @media screen and (min-width:769px){
     #desktop-content {display: block;}

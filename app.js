@@ -16,3 +16,29 @@ navigator.mediaDevices
 }
 
 window.addEventListener("load", cameraStart, false);
+
+function mic() {
+    var button = document.getElementById("mic-button");
+    if (button.alt=="off") {
+        button.alt = "on"
+        button.src = "mic on.png"
+        console.log("on");
+    } else {
+        button.alt = "off"
+        button.src = "mic off.png"
+        console.log("off");
+    }
+}
+
+
+function chatOpen() {
+    document.getElementById("chat-window").style.display = "block";
+    document.getElementById("camera-window").style.display = "none";
+    document.getElementById("mic-button").alt="on"
+    mic()
+}
+
+function chatClose(){
+    document.getElementById("chat-window").style.display = "none";
+    document.getElementById("camera-window").style.display = "block";
+}
