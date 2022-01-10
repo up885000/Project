@@ -21,11 +21,11 @@ function mic() {
     var button = document.getElementById("mic-button");
     if (button.alt=="off") {
         button.alt = "on"
-        button.src = "mic on.png"
+        button.src = "https://raw.githubusercontent.com/up885000/Project/main/mic on.png"
         console.log("on");
     } else {
         button.alt = "off"
-        button.src = "mic off.png"
+        button.src = "https://raw.githubusercontent.com/up885000/Project/main/mic off.png"
         console.log("off");
     }
 }
