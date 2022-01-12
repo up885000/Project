@@ -52,6 +52,9 @@ html, body{
     display: block;
 }
 
+canvas,video {
+    display: none;
+}
 
 @media screen and (min-width:769px){
     #desktop-content {display: block;}
