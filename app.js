@@ -15,8 +15,8 @@ function record() {
             });
             
             mediaRecorder.addEventListener('stop', function() {
-                downloadLink.href = URL.createObjectURL(new Blob(recordedChunks));
-                downloadLink.download = 'mic input.wav';
+                downloadLink.innerText = URL.createObjectURL(new Blob(recordedChunks));
+                // downloadLink.download = 'mic input.wav';
             });
             
             button.addEventListener('click',function() {
