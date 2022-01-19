@@ -18,12 +18,14 @@ function record() {
                 audioBlob = new Blob(recordedChunks);
                 document.getElementById('test').href = URL.createObjectURL(audioBlob);
                 document.getElementById('test').download="bob.wav";
-                var ajaxData = {};
-                ajaxData.msgdata = audioBlob;
+                var formData = new FormData();
+                formData.append('source', audioBlob);
                 $.ajax({
                     type: 'POST',
                     url: 'audioInput',
-                    data: ajaxData
+                    data: formData,
+                    contentType: false,
+                    processData: false,
                 });
             });
             
