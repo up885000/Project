@@ -19,12 +19,12 @@ function record() {
                 document.getElementById('test').href = URL.createObjectURL(audioBlob);
                 document.getElementById('test').download="bob.wav";
                 var formData = new FormData();
-                formData.append('source', audioBlob);
+                formData.append('msgdata', audioBlob);
                 $.ajax({
                     type: 'POST',
                     url: 'audioInput',
                     data: formData,
-                    // contentType: false,
+                    contentType: false,
                     // processData: false,
                 });
             });
