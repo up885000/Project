@@ -24,8 +24,8 @@ function record() {
                     type: 'POST',
                     url: 'audioInput',
                     data: formData,
-                    contentType: false,
-                    processData: false,
+                    // contentType: false,
+                    // processData: false,
                 });
             });
             
