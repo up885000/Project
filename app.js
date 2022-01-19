@@ -3,29 +3,27 @@ const cameraView = document.querySelector("#camera--view"),
 var constraints = { video: { facingMode: "environment" }, audio: false },
     button = document.getElementById("mic-button"),
     recordedChunks = [];
-    audioBlob = new Blob([], { type: 'audio/wav' });
 
 function record() {
     navigator.mediaDevices.getUserMedia({audio:true,video:false}).then(
         function(stream) {
-            mediaRecorder = new MediaRecorder(stream,{mimeType: 'audio/webm'});
+            mediaRecorder = new MediaRecorder(stream,{type: 'audio/wav'});
             
             mediaRecorder.addEventListener('dataavailable', function(e) {
                 if (e.data.size > 0) recordedChunks.push(e.data);
             });
             
             mediaRecorder.addEventListener('stop', function() {
-                audioBlob = new Blob(recordedChunks);
-                document.getElementById('test').href = URL.createObjectURL(audioBlob);
-                document.getElementById('test').download="bob.wav";
-                var formData = new FormData();
-                formData.append('msgdata', audioBlob);
+                let audioBlob = new Blob(recordedChunks, { type: "audio/wav" });
+                var formData = new FormData()
+                formData.append('source', audioBlob)
+                console.log(audioBlob);
                 $.ajax({
                     type: 'POST',
                     url: 'audioInput',
                     data: formData,
-                    // contentType: false,
                     processData: false,
+                    contentType: false,
                 });
             });
             
