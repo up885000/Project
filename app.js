@@ -2,7 +2,8 @@ const cameraView = document.querySelector("#camera--view"),
     cameraSensor = document.querySelector("#camera--sensor");
 var constraints = { video: { facingMode: "environment" }, audio: false },
     button = document.getElementById("mic-button"),
-    recordedChunks = [];
+    recordedChunks = [],
+    chat = [];
 
 function record() {
     navigator.mediaDevices.getUserMedia({audio:true,video:false}).then(
@@ -24,6 +25,7 @@ function record() {
                     data: formData,
                     processData: false,
                     contentType: false,
+                    success: sttOutput,
                 });
             });
             
@@ -43,6 +45,25 @@ function record() {
             })
         }
     )
+}
+
+function sttOutput(response){
+    console.log(response);
+    chat.push([0,response]);
+    $.ajax({
+                    type: 'POST',
+                    url: 'assistantOutput',
+                    data: response,
+                    processData: false,
+                    contentType: false,
+                    success: assistantOutput,
+                });
+}
+
+
+function assistantOutput(response){
+    console.log(response);
+    chat.push([1,response]);
 }
 
 function cameraStart() {
@@ -67,9 +88,14 @@ function chatOpen() {
     document.getElementById("chat-window").style.display = "block";
     document.getElementById("camera-window").style.display = "none";
     document.getElementById("mic-button").alt="on"
+    loadChat;
 }
 
 function chatClose(){
     document.getElementById("chat-window").style.display = "none";
     document.getElementById("camera-window").style.display = "block";
+}
+
+function loadChat(){
+
 }
