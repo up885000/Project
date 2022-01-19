@@ -1,47 +1,54 @@
 html, body{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
     margin: 0;
     padding: 0;
     height: 100%;
-    width: 100%
+    width: 100%;
+    background-color: aliceblue;
 }
 
 
 #camera, #camera--view, #camera--sensor, #camera--output{
     position: fixed;
-    height: 100%;
-    width: 100%;
-    object-fit: cover
+    margin: 5%;
+    margin-top: 0%;
+    height: 80%;
+    width: 90%;
+    object-fit: cover;
+    border-radius: 25px;
 }
 
 #mic-button{
-    width: 20vw;
-    height: 20vw;
-    background-color: aliceblue;
+    height: 10%;
+    width: inherit;
+    background-color: lightgrey;
     position: absolute;
     left: 0;
     bottom: 0;
     z-index: 1;
+    border-radius: 20px;
 }
 
 #chat-button{
-    width: 20vw;
-    height: 20vw;
-    background-color: aliceblue;
+    height: 10%;
+    width: inherit;
+    background-color: lightgrey;
     position: absolute;
     right: 0;
     bottom: 0;
     z-index: 1;
+    border-radius: 20px;
 }
 
 #close-button{
-    width: 20vw;
-    height: 20vw;
-    background-color: aliceblue;
+    height: 10%;
+    width: inherit;
+    background-color: lightgrey;
     position: absolute;
     right: 0;
     top: 0;
     z-index: 1;
+    border-radius: 20px;
 }
 
 #chat-window {
@@ -52,9 +59,31 @@ html, body{
     display: block;
 }
 
-canvas,video {
-    display: none;
+h1{
+    align-self: center;
 }
+
+#test {
+    position: absolute;
+    bottom: 5%;
+    left: 45%;
+    z-index: 1;
+}
+
+#chat-box{
+    position: fixed;
+    margin: 5%;
+    margin-top: 0%;
+    height: 80%;
+    width: 90%;
+    object-fit: cover;
+    background-color: white;
+    border-radius: 25px;
+}
+
+/* canvas,video {
+    display: none;
+} */
 
 @media screen and (min-width:769px){
     #desktop-content {display: block;}

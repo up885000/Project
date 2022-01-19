@@ -11,18 +11,21 @@
         </div>
         <div id="mobile-content">
             <div id="camera-window">
+                <h1>Camera View</h1>
                 <img src="https://raw.githubusercontent.com/up885000/Project/main/chat.png" id="chat-button" onclick="chatOpen()">
                 <img src="https://raw.githubusercontent.com/up885000/Project/main/mic off.png" id="mic-button" alt="off">
                 <video id="camera--view" autoplay></video>
                 <canvas id="camera--sensor"></canvas>
-                <a id="download">Download</a>
+                <a id="test">Test Text</a>
             </div>
             <div id="chat-window">
+                <h1>Chat View</h1>
+                <canvas id="chat-box"></canvas>
                 <img src="https://raw.githubusercontent.com/up885000/Project/main/x.png" id="close-button" onclick="chatClose()">
-                Chat window
             </div>
         </div>
     </body>
 </html>
 <script src="app.js"></script>
 <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

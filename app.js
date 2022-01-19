@@ -1,9 +1,9 @@
-const downloadLink = document.getElementById('download'),
-    cameraView = document.querySelector("#camera--view"),
+const cameraView = document.querySelector("#camera--view"),
     cameraSensor = document.querySelector("#camera--sensor");
 var constraints = { video: { facingMode: "environment" }, audio: false },
     button = document.getElementById("mic-button"),
     recordedChunks = [];
+    audioBlob = new Blob([], { type: 'audio/wav' });
 
 function record() {
     navigator.mediaDevices.getUserMedia({audio:true,video:false}).then(
@@ -15,8 +15,16 @@ function record() {
             });
             
             mediaRecorder.addEventListener('stop', function() {
-                downloadLink.innerText = URL.createObjectURL(new Blob(recordedChunks));
-                // downloadLink.download = 'mic input.wav';
+                audioBlob = new Blob(recordedChunks);
+                document.getElementById('test').href = URL.createObjectURL(audioBlob);
+                document.getElementById('test').download="bob.wav";
+                var ajaxData = {};
+                ajaxData.msgdata = audioBlob;
+                $.ajax({
+                    type: 'POST',
+                    url: 'audioInput',
+                    data: ajaxData
+                });
             });
             
             button.addEventListener('click',function() {
@@ -54,25 +62,11 @@ function cameraStart() {
 window.addEventListener("load", cameraStart, false);
 window.addEventListener("load", record(), false);
 
-// function mic() {
-//     var button = document.getElementById("mic-button");
-//     if (button.alt=="off") {
-//         button.alt = "on"
-//         button.src = "https://raw.githubusercontent.com/up885000/Project/main/mic on.png"
-//         console.log("on");
-//     } else {
-//         button.alt = "off"
-//         button.src = "https://raw.githubusercontent.com/up885000/Project/main/mic off.png"
-//         console.log("off");
-//     }
-// }
-
 
 function chatOpen() {
     document.getElementById("chat-window").style.display = "block";
     document.getElementById("camera-window").style.display = "none";
     document.getElementById("mic-button").alt="on"
-    // mic()
 }
 
 function chatClose(){
