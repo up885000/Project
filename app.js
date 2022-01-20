@@ -54,17 +54,20 @@ function record() {
     )
 }
 
+
 function sttOutput(response){
     console.log(response);
     chat.push([0,response]);
+    let ajaxData = {};
+    ajaxData.msgdata = response;
     $.ajax({
-            type: 'POST',
-            url: 'assistantOutput',
-            data: response,
-            processData: false,
-            contentType: false,
-            success: assistantOutput,
-            });
+                    type: 'POST',
+                    url: 'assistantOutput',
+                    data: ajaxData,
+                    // processData: false,
+                    // contentType: false,
+                    success: assistantOutput,
+                });
     loadChat();
 }
 
