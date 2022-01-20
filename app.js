@@ -75,6 +75,9 @@ function sttOutput(response){
 function assistantOutput(response){
     console.log(response);
     chat.push([1,response]);
+    var msg = new SpeechSynthesisUtterance();
+    msg.text = response;
+    window.speechSynthesis.speak(msg);  
     loadChat();
 }
 
