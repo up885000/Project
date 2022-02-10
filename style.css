@@ -78,11 +78,13 @@ h1{
 #index0 {
     text-align: right;
     right: 0;
+    padding-right: 5%;
 }
 
 #index1 {
     text-align: left;
     left:0;
+    padding-left: 5%;
 }
 
 @media screen and (min-width:769px){
