@@ -77,14 +77,22 @@ h1{
 
 #index0 {
     text-align: right;
-    right: 0;
-    padding-right: 5%;
+    padding: 1vw;
+    margin-left: auto;
+    background-color: blue;
+    border-radius: 15px;
+     max-width: 80%; 
+    width: fit-content;
 }
 
 #index1 {
     text-align: left;
-    left:0;
-    padding-left: 5%;
+    padding: 1vw;
+    margin-right: auto;
+    background-color: green;
+    border-radius: 15px;
+     max-width: 80%; 
+    width: fit-content;
 }
 
 @media screen and (min-width:769px){
