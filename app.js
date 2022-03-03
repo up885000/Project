@@ -28,11 +28,11 @@ function record() {
                 var formData = new FormData()
                 formData.append('source', audioBlob)
                 console.log(audioBlob);
-                if (currentLocation!=null){
-                    urlData = "audioInput"
-                }else{
-                    urlData = currentLocation+"/audioInput"
-                }
+                // if (currentLocation!=null){
+                urlData = "/audioInput"
+                // }else{
+                //     urlData = currentLocation+"/audioInput"
+                // }
                 $.ajax({
                     type: 'POST',
                     url: urlData,
@@ -66,11 +66,11 @@ function sttOutput(response){
     chat.push([0,response]);
     let ajaxData = {};
     ajaxData.msgdata = response;
-    if (currentLocation==null){
-        urlData = "assistantOutput"
-    } else {
-        urlData = currentLocation+"/assistantOutput"
-    }
+    // if (currentLocation==null){
+    urlData = "/assistantOutput"
+    // } else {
+    //     urlData = currentLocation+"/assistantOutput"
+    // }
     $.ajax({
                     type: 'POST',
                     url: urlData,
