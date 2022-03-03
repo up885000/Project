@@ -28,9 +28,14 @@ function record() {
                 var formData = new FormData()
                 formData.append('source', audioBlob)
                 console.log(audioBlob);
+                if (currentLocation!=null){
+                    urlData = "audioInput"
+                }else{
+                    urlData = currentLocation+"/audioInput"
+                }
                 $.ajax({
                     type: 'POST',
-                    url: 'audioInput',
+                    url: urlData,
                     data: formData,
                     processData: false,
                     contentType: false,
@@ -61,9 +66,14 @@ function sttOutput(response){
     chat.push([0,response]);
     let ajaxData = {};
     ajaxData.msgdata = response;
+    if (currentLocation==null){
+        urlData = "assistantOutput"
+    } else {
+        urlData = currentLocation+"/assistantOutput"
+    }
     $.ajax({
                     type: 'POST',
-                    url: 'assistantOutput',
+                    url: urlData,
                     data: ajaxData,
                     // processData: false,
                     // contentType: false,
