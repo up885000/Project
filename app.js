@@ -4,7 +4,7 @@ var constraints = { video: { facingMode: "environment" }, audio: false },
     button = document.getElementById("mic-button"),
     textBox = document.getElementById("textBox"),
     recordedChunks = [],
-    location = null,
+    currentLocation = null,
     chat = [];
     // chat.push([0,"me"]);
     // chat.push([0,"me"]);
