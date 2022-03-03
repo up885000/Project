@@ -81,7 +81,7 @@ h1{
     margin-left: auto;
     background-color: blue;
     border-radius: 15px;
-     max-width: 80%; 
+    max-width: 80%; 
     width: fit-content;
 }
 
@@ -91,8 +91,33 @@ h1{
     margin-right: auto;
     background-color: green;
     border-radius: 15px;
-     max-width: 80%; 
+    max-width: 80%; 
     width: fit-content;
+}
+
+
+#textBox{
+    height: 5%;
+    width: 70%;
+    margin: 5%;
+    position: absolute;
+    background-color: lightgrey;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    border-radius: 20px;
+}
+
+#send{
+    height: 5%;
+    width: 20%;
+    margin: 5%;
+    position: absolute;
+    background-color: lightgrey;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    border-radius: 20px;
 }
 
 @media screen and (min-width:769px){

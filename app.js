@@ -2,6 +2,7 @@ const cameraView = document.querySelector("#camera--view"),
     cameraSensor = document.querySelector("#camera--sensor");
 var constraints = { video: { facingMode: "environment" }, audio: false },
     button = document.getElementById("mic-button"),
+    textBox = document.getElementById("textBox"),
     recordedChunks = [],
     chat = [];
     // chat.push([0,"me"]);
@@ -54,7 +55,6 @@ function record() {
     )
 }
 
-
 function sttOutput(response){
     console.log(response);
     chat.push([0,response]);
@@ -71,6 +71,11 @@ function sttOutput(response){
     loadChat();
 }
 
+function send(){
+    console.log(textBox.value)
+    sttOutput(textBox.value)
+    textBox.value = ""
+}
 
 function assistantOutput(response){
     console.log(response);
