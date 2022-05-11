@@ -4,11 +4,49 @@ html, body{
     padding: 0;
     height: 100%;
     width: 100%;
+    /* background-color: aliceblue; */
+    overflow: hidden;
+}
+
+.left {
+    height: 100%;
+    width: 10%;
+    z-index: 0;
     background-color: aliceblue;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+.right {
+    height: 100%;
+    width: 10%;
+    z-index: 0;
+    background-color: aliceblue;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+.top {
+    height: 10%;
+    width: 100%;
+    z-index: 0;
+    background-color: aliceblue;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+.bottom {
+    height: 10%;
+    width: 100%;
+    z-index: 0;
+    background-color: aliceblue;
+    position: fixed;
+    left: 0;
+    bottom: 0;
 }
 
 
-#camera, #camera--view, #camera--sensor, #camera--output{
+/* #camera, #camera--view, #camera--sensor, #camera--output{
     position: fixed;
     margin: 5%;
     margin-top: 0%;
@@ -16,7 +54,7 @@ html, body{
     width: 90%;
     object-fit: cover;
     border-radius: 25px;
-}
+} */
 
 #mic-button{
     height: 10%;
@@ -66,13 +104,15 @@ h1{
 #chat-box{
     position: fixed;
     overflow: scroll;
-    margin: 5%;
-    margin-top: 0%;
+    top: 10%;
+    left: 10%;
+    /* margin: 5%;
+    margin-top: 0%; */
     height: 80%;
-    width: 90%;
-    object-fit: cover;
+    width: 80%;
+    /* object-fit: cover; */
     background-color: white;
-    border-radius: 25px;
+    /* border-radius: 25px; */
 }
 
 #index0 {

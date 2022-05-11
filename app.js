@@ -1,11 +1,14 @@
 const cameraView = document.querySelector("#camera--view"),
-    cameraSensor = document.querySelector("#camera--sensor");
+    cameraSensor = document.querySelector("#camera--sensor"),
+    modelAnimation = document.querySelector("#model");
 var constraints = { video: { facingMode: "environment" }, audio: false },
     button = document.getElementById("mic-button"),
     textBox = document.getElementById("textBox"),
     recordedChunks = [],
     currentLocation = null,
-    chat = [];
+    chat = [],
+    speaker = window.speechSynthesis,
+    msg = new SpeechSynthesisUtterance();
     // chat.push([0,"me"]);
     // chat.push([0,"me"]);
     // chat.push([1,"server"]);
@@ -88,30 +91,45 @@ function send(){
     textBox.value = ""
 }
 
+function speak(){
+    // console.log("start")
+    modelAnimation.setAttribute("animation-mixer","clip: Speak;loop: repeat")
+}
+
+function idle(){
+    // console.log("stop")
+    modelAnimation.setAttribute("animation-mixer","clip: idle; loop: once")
+}
+
+msg.onend = function(event){
+    idle();
+};
+
 function assistantOutput(response){
     console.log(response);
     chat.push([1,response]);
-    var msg = new SpeechSynthesisUtterance();
+    // var msg = new SpeechSynthesisUtterance();
     msg.text = response;
-    window.speechSynthesis.speak(msg);  
+    speak();
+    speaker.speak(msg);  
     loadChat();
 }
 
-function cameraStart() {
-    navigator.mediaDevices
-        .getUserMedia(constraints)
-        .then(function(stream) {
-        track = stream.getTracks()[0];
-        cameraView.srcObject = stream;
-    })
-    .catch(function(error) {
-        console.error("Oops. Something is broken.", error);
-    });
+// function cameraStart() {
+//     navigator.mediaDevices
+//         .getUserMedia(constraints)
+//         .then(function(stream) {
+//         track = stream.getTracks()[0];
+//         cameraView.srcObject = stream;
+//     })
+//     .catch(function(error) {
+//         console.error("Oops. Something is broken.", error);
+//     });
 
     
-}
+// }
 
-window.addEventListener("load", cameraStart, false);
+// window.addEventListener("load", cameraStart, false);
 window.addEventListener("load", record(), false);
 
 
@@ -133,3 +151,7 @@ function loadChat(){
         document.getElementById("chat-box").innerHTML = document.getElementById("chat-box").innerHTML + "<h2 id=index"+chat[i][0] +">"+chat[i][1]+"</h2>"
     }
 }
+
+
+
+idle();
