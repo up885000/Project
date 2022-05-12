@@ -31,11 +31,7 @@ function record() {
                 var formData = new FormData()
                 formData.append('source', audioBlob)
                 console.log(audioBlob);
-                // if (currentLocation!=null){
                 urlData = "/audioInput"
-                // }else{
-                //     urlData = currentLocation+"/audioInput"
-                // }
                 $.ajax({
                     type: 'POST',
                     url: urlData,
@@ -69,17 +65,11 @@ function sttOutput(response){
     chat.push([0,response]);
     let ajaxData = {};
     ajaxData.msgdata = response;
-    // if (currentLocation==null){
     urlData = "/assistantOutput"
-    // } else {
-    //     urlData = currentLocation+"/assistantOutput"
-    // }
     $.ajax({
                     type: 'POST',
                     url: urlData,
                     data: ajaxData,
-                    // processData: false,
-                    // contentType: false,
                     success: assistantOutput,
                 });
     loadChat();
@@ -92,12 +82,10 @@ function send(){
 }
 
 function speak(){
-    // console.log("start")
-    modelAnimation.setAttribute("animation-mixer","clip: Speak;loop: repeat")
+    modelAnimation.setAttribute("animation-mixer","clip: speak;loop: repeat")
 }
 
 function idle(){
-    // console.log("stop")
     modelAnimation.setAttribute("animation-mixer","clip: idle; loop: once")
 }
 
@@ -108,28 +96,13 @@ msg.onend = function(event){
 function assistantOutput(response){
     console.log(response);
     chat.push([1,response]);
-    // var msg = new SpeechSynthesisUtterance();
     msg.text = response;
     speak();
     speaker.speak(msg);  
     loadChat();
 }
 
-// function cameraStart() {
-//     navigator.mediaDevices
-//         .getUserMedia(constraints)
-//         .then(function(stream) {
-//         track = stream.getTracks()[0];
-//         cameraView.srcObject = stream;
-//     })
-//     .catch(function(error) {
-//         console.error("Oops. Something is broken.", error);
-//     });
 
-    
-// }
-
-// window.addEventListener("load", cameraStart, false);
 window.addEventListener("load", record(), false);
 
 
