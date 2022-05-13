@@ -82,7 +82,7 @@ function send(){
 }
 
 function speak(){
-    modelAnimation.setAttribute("animation-mixer","clip: speak;loop: repeat")
+    modelAnimation.setAttribute("animation-mixer","clip: *;loop: repeat")
 }
 
 function idle(){
