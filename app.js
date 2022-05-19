@@ -82,7 +82,7 @@ function send(){
 }
 
 function speak(){
-    modelAnimation.setAttribute("animation-mixer","clip: *;loop: repeat")
+    modelAnimation.setAttribute("animation-mixer","clip: *; loop: repeat")
 }
 
 function idle(){
@@ -128,3 +128,4 @@ function loadChat(){
 
 
 idle();
+assistantOutput("Hello, I can answer questions about locations, hours, events, and COVID-19 information of Portsmouth university.  How can I help you?")
