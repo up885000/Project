@@ -139,5 +139,5 @@ function volSwitch(){
     }
 }
 msg.volume=1
-// idle();
 assistantOutput("Hello, I can answer questions about locations, hours, events, and COVID-19 information of Portsmouth university.  How can I help you?")
+idle();
