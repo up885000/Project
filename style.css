@@ -67,6 +67,17 @@ html, body{
     border-radius: 20px;
 }
 
+#vol-button{
+    height: 10%;
+    width: inherit;
+    background-color: lightgrey;
+    position: absolute;
+    left: 45%;
+    bottom: 0;
+    z-index: 1;
+    border-radius: 20px;
+}
+
 #chat-button{
     height: 10%;
     width: inherit;

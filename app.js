@@ -1,6 +1,7 @@
 const cameraView = document.querySelector("#camera--view"),
     cameraSensor = document.querySelector("#camera--sensor"),
-    modelAnimation = document.querySelector("#model");
+    modelAnimation = document.querySelector("#model"),
+    volButton = document.querySelector("#vol-button");
 var constraints = { video: { facingMode: "environment" }, audio: false },
     button = document.getElementById("mic-button"),
     textBox = document.getElementById("textBox"),
@@ -125,7 +126,18 @@ function loadChat(){
     }
 }
 
-
-
-idle();
+function volSwitch(){
+    if (volButton.alt=="on") {
+        volButton.alt = "off"
+        volButton.src = "https://raw.githubusercontent.com/up885000/Project/main/vol off.png"
+        msg.volume=0;
+        speaker.cancel();
+    } else {
+        volButton.alt = "on"
+        volButton.src = "https://raw.githubusercontent.com/up885000/Project/main/vol on.png"
+        msg.volume=1;
+    }
+}
+msg.volume=1
+// idle();
 assistantOutput("Hello, I can answer questions about locations, hours, events, and COVID-19 information of Portsmouth university.  How can I help you?")
